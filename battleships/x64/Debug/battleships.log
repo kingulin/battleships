@@ -1,0 +1,5 @@
+﻿  main.cpp
+C:\Users\kingu\source\repos\battleships\main.cpp(18,3): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\kingu\source\repos\battleships\main.cpp(19,1): warning C4305: "inicjowanie": obcięcie z "int" do "char"
+C:\Users\kingu\source\repos\battleships\main.cpp(18,3): warning C4309: "inicjowanie": obcięcie stałej wartości
+  battleships.vcxproj -> C:\Users\kingu\source\repos\battleships\x64\Debug\battleships.exe
