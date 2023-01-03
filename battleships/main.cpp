@@ -237,7 +237,29 @@ void statek_podwojny(char plansza1[11][11]) {
 			}
 		}
 		// tu jest sprawdzanie czy podana pozycja jest zajeta i nie koliduje z innym statkiem
-		for (int h = -1; h <= 2; h++)
+			if(poz_pion == 1){
+			for (int h = -1; h <= 2; h++)
+		{
+			for (int v = -1; v <= 1; v++)
+			{
+				if (poz_h + h < 1 || poz_h + h > 10 || new_poz_v + v < 1 || new_poz_v + v > 10)
+				{
+					//  cout << "sprawdzenie pozycja poza plansza1" << endl;
+				}
+				else
+				{					if (plansza1[poz_h + h][new_poz_v + v] == 'x')
+					{
+						cout << "zajete" << endl;
+						can_place = false;
+					}
+
+				}
+			}
+		    
+		}
+		}else{
+
+		for (int h = -1; h <= 1; h++)
 		{
 			for (int v = -1; v <= 2; v++)
 			{
@@ -255,7 +277,7 @@ void statek_podwojny(char plansza1[11][11]) {
 					}
 
 				}
-			}
+			}}
 		}
 	}
 
@@ -306,7 +328,29 @@ void statek_potrjny(char plansza1[11][11]) {
 				can_place = false;
 			}
 		}
-		for (int h = -1; h <= 3; h++)
+			if(poz_pion == 1){
+			for (int h = -1; h <= 3; h++)
+		{
+			for (int v = -1; v <= 1; v++)
+			{
+				if (poz_h + h < 1 || poz_h + h > 10 || new_poz_v + v < 1 || new_poz_v + v > 10)
+				{
+					//  cout << "sprawdzenie pozycja poza plansza1" << endl;
+				}
+				else
+				{					if (plansza1[poz_h + h][new_poz_v + v] == 'x')
+					{
+						cout << "zajete" << endl;
+						can_place = false;
+					}
+
+				}
+			}
+		    
+		}
+		}else{
+
+		for (int h = -1; h <= 1; h++)
 		{
 			for (int v = -1; v <= 3; v++)
 			{
@@ -323,7 +367,7 @@ void statek_potrjny(char plansza1[11][11]) {
 
 				}
 			}
-		}
+		}}
 	}
 
 	if (poz_pion == 0) {
@@ -375,8 +419,29 @@ void statek_poczworny(char plansza1[11][11]) {
 				can_place = false;
 			}
 		}
+	if(poz_pion == 1){
+			for (int h = -1; h <= 4; h++)
+		{
+			for (int v = -1; v <= 1; v++)
+			{
+				if (poz_h + h < 1 || poz_h + h > 10 || new_poz_v + v < 1 || new_poz_v + v > 10)
+				{
+					//  cout << "sprawdzenie pozycja poza plansza1" << endl;
+				}
+				else
+				{					if (plansza1[poz_h + h][new_poz_v + v] == 'x')
+					{
+						cout << "zajete" << endl;
+						can_place = false;
+					}
 
-		for (int h = -1; h <= 4; h++)
+				}
+			}
+		    
+		}
+		}else{
+
+		for (int h = -1; h <= 1; h++)
 		{
 			for (int v = -1; v <= 4; v++)
 			{
@@ -394,6 +459,7 @@ void statek_poczworny(char plansza1[11][11]) {
 				}
 			}
 		}
+	}
 	}
 
 	if (poz_pion == 0) {
