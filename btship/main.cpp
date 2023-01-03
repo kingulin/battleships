@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string.h>
 #include <stdio.h>
@@ -139,14 +140,14 @@ void czy_trafiony(char plansza1[11][11], char plansza1_odp[11][11]) {
 
 			if (plansza1_odp[i][j] == 'x') {
 
-				cout << "\033[0;31m" << plansza1[i][j];
+				cout << "\033[0;31m";
 			}
 			else if (plansza1_odp[i][j] == 'v') {
 
-				cout <<"\033[0;36m" << plansza1[i][j];
+				cout <<"\033[0;36m";
 			}
 			else {
-				cout << "\033[0m"<< plansza1[i][j];
+				cout << "\033[0m";
 			}
 
 			cout << plansza1_odp[i][j];
@@ -236,7 +237,29 @@ void statek_podwojny(char plansza1[11][11]) {
 			}
 		}
 		// tu jest sprawdzanie czy podana pozycja jest zajeta i nie koliduje z innym statkiem
-		for (int h = -1; h <= 2; h++)
+		if(poz_pion == 1){
+			for (int h = -1; h <= 2; h++)
+		{
+			for (int v = -1; v <= 1; v++)
+			{
+				if (poz_h + h < 1 || poz_h + h > 10 || new_poz_v + v < 1 || new_poz_v + v > 10)
+				{
+					//  cout << "sprawdzenie pozycja poza plansza1" << endl;
+				}
+				else
+				{
+					// cout << poz_h + h << ", " << new_poz_v + v << ": ";
+					if (plansza1[poz_h + h][new_poz_v + v] == 'x')
+					{
+						cout << "zajete" << endl;
+						can_place = false;
+					}
+
+				}
+			}
+		}}
+		else{
+		for (int h = -1; h <= 1; h++)
 		{
 			for (int v = -1; v <= 2; v++)
 			{
@@ -256,7 +279,7 @@ void statek_podwojny(char plansza1[11][11]) {
 				}
 			}
 		}
-	}
+	}}
 
 	if (poz_pion == 0) {
 		cout << "0" << endl;
@@ -305,7 +328,28 @@ void statek_potrjny(char plansza1[11][11]) {
 				can_place = false;
 			}
 		}
-		for (int h = -1; h <= 3; h++)
+			if(poz_pion == 1){
+			for (int h = -1; h <= 3; h++)
+		{
+			for (int v = -1; v <= 1; v++)
+			{
+				if (poz_h + h < 1 || poz_h + h > 10 || new_poz_v + v < 1 || new_poz_v + v > 10)
+				{
+				}
+				else
+				{
+					if (plansza1[poz_h + h][new_poz_v + v] == 'x')
+					{
+						cout << "zajete" << endl;
+						can_place = false;
+					}
+
+				}
+			}
+		    
+		}
+		}else{
+		for (int h = -1; h <= 1; h++)
 		{
 			for (int v = -1; v <= 3; v++)
 			{
@@ -323,7 +367,7 @@ void statek_potrjny(char plansza1[11][11]) {
 				}
 			}
 		}
-	}
+	}}
 
 	if (poz_pion == 0) {
 		cout << "0" << endl;
@@ -345,7 +389,7 @@ void statek_potrjny(char plansza1[11][11]) {
 
 }
 
-void statek_poczworny(char plansza1[11][11]) {
+void statek_poczworny(char plansza1[11][11]){
 
 	cout << "statek ma isc w poziomie (wpisz 0) czy pionie (wpisz 1): " << endl;
 	cin >> poz_pion;
@@ -374,8 +418,29 @@ void statek_poczworny(char plansza1[11][11]) {
 				can_place = false;
 			}
 		}
+			if(poz_pion == 1){
+			for (int h = -1; h <= 4; h++)
+		{
+			for (int v = -1; v <= 1; v++)
+			{
+				if (poz_h + h < 1 || poz_h + h > 10 || new_poz_v + v < 1 || new_poz_v + v > 10)
+				{
+					//  cout << "sprawdzenie pozycja poza plansza1" << endl;
+				}
+				else
+				{					if (plansza1[poz_h + h][new_poz_v + v] == 'x')
+					{
+						cout << "zajete" << endl;
+						can_place = false;
+					}
 
-		for (int h = -1; h <= 4; h++)
+				}
+			}
+		    
+		}
+		}else{
+
+		for (int h = -1; h <= 1; h++)
 		{
 			for (int v = -1; v <= 4; v++)
 			{
@@ -392,6 +457,8 @@ void statek_poczworny(char plansza1[11][11]) {
 
 				}
 			}
+		    
+		}
 		}
 	}
 
@@ -413,9 +480,9 @@ void statek_poczworny(char plansza1[11][11]) {
 		plansza1[poz_h + 2][new_poz_v] = 'x';
 		plansza1[poz_h + 3][new_poz_v] = 'x';
 	}
-
-
 }
+
+
 
 int main() {
 
@@ -429,25 +496,25 @@ int main() {
 
 	statek_pojedynczy(plansza1);
 	statek_pojedynczy(plansza1);
-	statek_pojedynczy(plansza1);
-	statek_pojedynczy(plansza1);
+ 	statek_pojedynczy(plansza1);
+ 	statek_pojedynczy(plansza1);
 
 	wypisz_tablice(plansza1);
 
 	cout << "\033[0m";
 	cout << "poazycje podojnych:";
 
-	statek_podwojny(plansza1);
+ 	statek_podwojny(plansza1);
 	statek_podwojny(plansza1);
 	statek_podwojny(plansza1);
 
 	wypisz_tablice(plansza1);
 	
-    cout << "\033[0m";
+	cout << "\033[0m";
 
 	cout << "poazycje potrojnych:";
 
-	statek_potrjny(plansza1);
+ 	statek_potrjny(plansza1);
 	statek_potrjny(plansza1);
 
 	wypisz_tablice(plansza1);
@@ -455,7 +522,7 @@ int main() {
 	cout << "\033[0m";
 	cout << "poazycje poczworny:";
 
-	statek_poczworny(plansza1);
+ 	statek_poczworny(plansza1);
 
 	wypisz_tablice(plansza1);
 
@@ -466,17 +533,17 @@ int main() {
 		while (off_pod != "ok")
 			cin >> off_pod;
 	}
-	system("CLS");
+	system("clear");
 
 	off_pod = "x";
 
 	cout << "\n Drugi gracz ustawia \n Twoje statki to: \n \t jeden czteromasztowiec; \n \t dwa trzymasztowce; \n \t trzy dwumasztowce; \n \t cztery jednomasztowce;   \n Podaj pozycje od 1A-10-J najpeirw v pozniej h" << endl;
 	cout << "poazycje pojedynczych:";
 
+	statek_pojedynczy(plansza2);
 		statek_pojedynczy(plansza2);
-		statek_pojedynczy(plansza2);
-		statek_pojedynczy(plansza2);
-		statek_pojedynczy(plansza2);
+ 		statek_pojedynczy(plansza2);
+ 		statek_pojedynczy(plansza2);
 
 		wypisz_tablice(plansza2);
 
@@ -511,7 +578,7 @@ int main() {
 		while (off_pod != "ok")
 			cin >> off_pod;
 	}
-	system("CLS");
+	system("clear");
 
 	off_pod = "x";
 	while (!koniecbool) {
@@ -527,3 +594,4 @@ int main() {
 }
 	return 0;
 }
+
